@@ -1,12 +1,16 @@
 import express from "express";
 import routes from "../routes";
-import { home, join, login, logout, search } from "../controllers/coreController";
+import { home, logout, search, getJoin, postJoin, getLogin, postLogin } from "../controllers/coreController";
 
 const coreRouter = express.Router();
 
+coreRouter.get(routes.join, getJoin);
+coreRouter.post(routes.join, postJoin);
+
+coreRouter.get(routes.login, getLogin);
+coreRouter.post(routes.login, postLogin);
+
 coreRouter.get(routes.home, home);
-coreRouter.get(routes.join, join);
-coreRouter.get(routes.login, login);
 coreRouter.get(routes.logout, logout);
 coreRouter.get(routes.search, search);
 
